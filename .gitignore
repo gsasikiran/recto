@@ -1,0 +1,11 @@
+digests/
+*.pkl
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+config.toml
+profile.md
+.coverage

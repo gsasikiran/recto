@@ -1,0 +1,1240 @@
+{
+  "meta": {
+    "count": 3
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W7133224126",
+      "doi": "https://doi.org/10.52202/068431-1800",
+      "title": "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "publication_date": "2022-01-01",
+      "primary_location": {
+        "id": "doi:10.52202/068431-1800",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.52202/068431-1800",
+        "pdf_url": null,
+        "source": null,
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Advances in Neural Information Processing Systems 35",
+        "raw_type": "proceedings-article"
+      },
+      "authorships": [
+        {
+          "author": {
+            "display_name": "Jason Wei"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Xuezhi Wang"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Dale Schuurmans"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Maarten Bosma"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Brian Ichter"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Fei Xia"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Ed Chi"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Quoc V Le"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Denny Zhou"
+          }
+        }
+      ],
+      "abstract_inverted_index": null,
+      "cited_by_count": 1027,
+      "referenced_works": []
+    },
+    {
+      "id": "https://openalex.org/W4403813762",
+      "doi": "https://doi.org/10.1001/jamanetworkopen.2024.40969",
+      "title": "Large Language Model Influence on Diagnostic Reasoning",
+      "publication_date": "2024-10-28",
+      "primary_location": {
+        "id": "doi:10.1001/jamanetworkopen.2024.40969",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1001/jamanetworkopen.2024.40969",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4210217848",
+          "display_name": "JAMA Network Open",
+          "issn_l": "2574-3805",
+          "issn": [
+            "2574-3805"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320259",
+          "host_organization_name": "American Medical Association",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320259"
+          ],
+          "host_organization_lineage_names": [
+            "American Medical Association"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "JAMA Network Open",
+        "raw_type": "journal-article"
+      },
+      "authorships": [
+        {
+          "author": {
+            "display_name": "Ethan Goh"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Robert Gallo"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Jason Hom"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Eric Strong"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Yingjie Weng"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Hannah Kerman"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Jos\u00e9phine A. Cool"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Zahir Kanjee"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Andrew S. Parsons"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Neera Ahuja"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Eric Horvitz"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Daniel X. Yang"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Arnold Milstein"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Andrew Olson"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Adam Rodman"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Jonathan H. Chen"
+          }
+        }
+      ],
+      "abstract_inverted_index": {
+        "Importance:": [
+          0
+        ],
+        "Large": [
+          1
+        ],
+        "language": [
+          2
+        ],
+        "models": [
+          3
+        ],
+        "(LLMs)": [
+          4
+        ],
+        "have": [
+          5
+        ],
+        "shown": [
+          6
+        ],
+        "promise": [
+          7
+        ],
+        "in": [
+          8,
+          82,
+          101,
+          220,
+          391
+        ],
+        "their": [
+          9
+        ],
+        "performance": [
+          10,
+          135,
+          142,
+          192,
+          370
+        ],
+        "on": [
+          11,
+          41,
+          136,
+          144
+        ],
+        "both": [
+          12,
+          372
+        ],
+        "multiple-choice": [
+          13
+        ],
+        "and": [
+          14,
+          51,
+          71,
+          129,
+          151,
+          154,
+          160,
+          175,
+          206,
+          249,
+          339,
+          380
+        ],
+        "open-ended": [
+          15
+        ],
+        "medical": [
+          16,
+          77
+        ],
+        "reasoning": [
+          17,
+          44,
+          237,
+          360
+        ],
+        "examinations,": [
+          18
+        ],
+        "but": [
+          19
+        ],
+        "it": [
+          20
+        ],
+        "remains": [
+          21
+        ],
+        "unknown": [
+          22
+        ],
+        "whether": [
+          23
+        ],
+        "the": [
+          24,
+          36,
+          99,
+          182,
+          190,
+          194,
+          198,
+          202,
+          207,
+          246,
+          254,
+          283,
+          298,
+          334,
+          344,
+          376,
+          385
+        ],
+        "use": [
+          25
+        ],
+        "of": [
+          26,
+          38,
+          140,
+          149,
+          193,
+          262,
+          306,
+          346,
+          387
+        ],
+        "such": [
+          27
+        ],
+        "tools": [
+          28
+        ],
+        "improves": [
+          29
+        ],
+        "physician": [
+          30,
+          373
+        ],
+        "diagnostic": [
+          31,
+          43,
+          105,
+          141,
+          156,
+          236,
+          353
+        ],
+        "reasoning.": [
+          32
+        ],
+        "Objective:": [
+          33
+        ],
+        "To": [
+          34
+        ],
+        "assess": [
+          35
+        ],
+        "effect": [
+          37
+        ],
+        "an": [
+          39,
+          259,
+          347
+        ],
+        "LLM": [
+          40,
+          100,
+          195,
+          203,
+          247,
+          284,
+          318,
+          348,
+          366
+        ],
+        "physicians'": [
+          42
+        ],
+        "compared": [
+          45,
+          291,
+          361
+        ],
+        "with": [
+          46,
+          80,
+          258,
+          292,
+          302,
+          362
+        ],
+        "conventional": [
+          47,
+          104,
+          108,
+          208,
+          255,
+          299,
+          335,
+          363
+        ],
+        "resources.": [
+          48,
+          364
+        ],
+        "Design,": [
+          49
+        ],
+        "Setting,": [
+          50
+        ],
+        "Participants:": [
+          52
+        ],
+        "A": [
+          53,
+          185
+        ],
+        "single-blind": [
+          54
+        ],
+        "randomized": [
+          55,
+          95
+        ],
+        "clinical": [
+          56,
+          125,
+          359,
+          392
+        ],
+        "trial": [
+          57
+        ],
+        "was": [
+          58,
+          134,
+          241,
+          286
+        ],
+        "conducted": [
+          59
+        ],
+        "from": [
+          60
+        ],
+        "November": [
+          61
+        ],
+        "29": [
+          62
+        ],
+        "to": [
+          63,
+          96,
+          103,
+          120,
+          123,
+          269,
+          311,
+          349,
+          383
+        ],
+        "December": [
+          64
+        ],
+        "29,": [
+          65
+        ],
+        "2023.": [
+          66
+        ],
+        "Using": [
+          67
+        ],
+        "remote": [
+          68
+        ],
+        "video": [
+          69
+        ],
+        "conferencing": [
+          70
+        ],
+        "in-person": [
+          72,
+          232
+        ],
+        "participation": [
+          73
+        ],
+        "across": [
+          74
+        ],
+        "multiple": [
+          75
+        ],
+        "academic": [
+          76
+        ],
+        "institutions,": [
+          78
+        ],
+        "physicians": [
+          79,
+          213,
+          350
+        ],
+        "training": [
+          81
+        ],
+        "family": [
+          83
+        ],
+        "medicine,": [
+          84,
+          86
+        ],
+        "internal": [
+          85
+        ],
+        "or": [
+          87,
+          107
+        ],
+        "emergency": [
+          88
+        ],
+        "medicine": [
+          89
+        ],
+        "were": [
+          90,
+          94,
+          116
+        ],
+        "recruited.": [
+          91
+        ],
+        "Intervention:": [
+          92
+        ],
+        "Participants": [
+          93,
+          115
+        ],
+        "either": [
+          97
+        ],
+        "access": [
+          98
+        ],
+        "addition": [
+          102
+        ],
+        "resources": [
+          106,
+          109,
+          300,
+          336
+        ],
+        "only,": [
+          110
+        ],
+        "stratified": [
+          111
+        ],
+        "by": [
+          112,
+          196
+        ],
+        "career": [
+          113
+        ],
+        "stage.": [
+          114
+        ],
+        "allocated": [
+          117
+        ],
+        "60": [
+          118
+        ],
+        "minutes": [
+          119
+        ],
+        "review": [
+          121
+        ],
+        "up": [
+          122
+        ],
+        "6": [
+          124
+        ],
+        "vignettes.": [
+          126
+        ],
+        "Main": [
+          127
+        ],
+        "Outcomes": [
+          128
+        ],
+        "Measures:": [
+          130
+        ],
+        "The": [
+          131,
+          234,
+          276,
+          317,
+          365
+        ],
+        "primary": [
+          132,
+          199
+        ],
+        "outcome": [
+          133
+        ],
+        "a": [
+          137,
+          303,
+          352
+        ],
+        "standardized": [
+          138
+        ],
+        "rubric": [
+          139
+        ],
+        "based": [
+          143
+        ],
+        "differential": [
+          145
+        ],
+        "diagnosis": [
+          146,
+          177
+        ],
+        "accuracy,": [
+          147
+        ],
+        "appropriateness": [
+          148
+        ],
+        "supporting": [
+          150
+        ],
+        "opposing": [
+          152
+        ],
+        "factors,": [
+          153
+        ],
+        "next": [
+          155
+        ],
+        "evaluation": [
+          157
+        ],
+        "steps,": [
+          158
+        ],
+        "validated": [
+          159
+        ],
+        "graded": [
+          161
+        ],
+        "via": [
+          162
+        ],
+        "blinded": [
+          163
+        ],
+        "expert": [
+          164
+        ],
+        "consensus.": [
+          165
+        ],
+        "Secondary": [
+          166
+        ],
+        "outcomes": [
+          167,
+          200
+        ],
+        "included": [
+          168
+        ],
+        "time": [
+          169,
+          278,
+          304
+        ],
+        "spent": [
+          170,
+          279
+        ],
+        "per": [
+          171,
+          239,
+          280
+        ],
+        "case": [
+          172,
+          240,
+          281
+        ],
+        "(in": [
+          173
+        ],
+        "seconds)": [
+          174
+        ],
+        "final": [
+          176
+        ],
+        "accuracy.": [
+          178
+        ],
+        "All": [
+          179
+        ],
+        "analyses": [
+          180
+        ],
+        "followed": [
+          181
+        ],
+        "intention-to-treat": [
+          183
+        ],
+        "principle.": [
+          184
+        ],
+        "secondary": [
+          186
+        ],
+        "exploratory": [
+          187
+        ],
+        "analysis": [
+          188
+        ],
+        "evaluated": [
+          189
+        ],
+        "standalone": [
+          191
+        ],
+        "comparing": [
+          197
+        ],
+        "between": [
+          201
+        ],
+        "alone": [
+          204,
+          319,
+          367
+        ],
+        "group": [
+          205,
+          248,
+          285
+        ],
+        "resource": [
+          209
+        ],
+        "group.": [
+          210,
+          337
+        ],
+        "Results:": [
+          211
+        ],
+        "Fifty": [
+          212
+        ],
+        "(26": [
+          214
+        ],
+        "attendings,": [
+          215
+        ],
+        "24": [
+          216
+        ],
+        "residents;": [
+          217
+        ],
+        "median": [
+          218,
+          235,
+          277
+        ],
+        "years": [
+          219
+        ],
+        "practice,": [
+          221
+        ],
+        "3": [
+          222
+        ],
+        "[IQR,": [
+          223
+        ],
+        "2-8])": [
+          224
+        ],
+        "participated": [
+          225
+        ],
+        "virtually": [
+          226
+        ],
+        "as": [
+          227,
+          229,
+          351
+        ],
+        "well": [
+          228
+        ],
+        "at": [
+          230
+        ],
+        "1": [
+          231
+        ],
+        "site.": [
+          233
+        ],
+        "score": [
+          238
+        ],
+        "76%": [
+          242
+        ],
+        "(IQR,": [
+          243,
+          251,
+          288,
+          294
+        ],
+        "66%-87%)": [
+          244
+        ],
+        "for": [
+          245,
+          253,
+          282,
+          297,
+          378
+        ],
+        "74%": [
+          250
+        ],
+        "63%-84%)": [
+          252
+        ],
+        "resources-only": [
+          256
+        ],
+        "group,": [
+          257,
+          301
+        ],
+        "adjusted": [
+          260
+        ],
+        "difference": [
+          261,
+          305
+        ],
+        "2": [
+          263
+        ],
+        "percentage": [
+          264,
+          271,
+          322,
+          327
+        ],
+        "points": [
+          265,
+          323
+        ],
+        "(95%": [
+          266,
+          308,
+          324
+        ],
+        "CI,": [
+          267,
+          309,
+          325
+        ],
+        "-4": [
+          268
+        ],
+        "8": [
+          270
+        ],
+        "points;": [
+          272,
+          328
+        ],
+        "P": [
+          273,
+          313,
+          329
+        ],
+        "=": [
+          274,
+          314,
+          330
+        ],
+        ".60).": [
+          275
+        ],
+        "519": [
+          287
+        ],
+        "371-668)": [
+          289
+        ],
+        "seconds,": [
+          290
+        ],
+        "565": [
+          293
+        ],
+        "456-788)": [
+          295
+        ],
+        "seconds": [
+          296
+        ],
+        "-82": [
+          307
+        ],
+        "-195": [
+          310
+        ],
+        "31;": [
+          312
+        ],
+        ".20)": [
+          315
+        ],
+        "seconds.": [
+          316
+        ],
+        "scored": [
+          320
+        ],
+        "16": [
+          321
+        ],
+        "2-30": [
+          326
+        ],
+        ".03)": [
+          331
+        ],
+        "higher": [
+          332,
+          369
+        ],
+        "than": [
+          333,
+          371
+        ],
+        "Conclusions": [
+          338
+        ],
+        "Relevance:": [
+          340
+        ],
+        "In": [
+          341
+        ],
+        "this": [
+          342
+        ],
+        "trial,": [
+          343
+        ],
+        "availability": [
+          345
+        ],
+        "aid": [
+          354
+        ],
+        "did": [
+          355
+        ],
+        "not": [
+          356
+        ],
+        "significantly": [
+          357
+        ],
+        "improve": [
+          358
+        ],
+        "demonstrated": [
+          368
+        ],
+        "groups,": [
+          374
+        ],
+        "indicating": [
+          375
+        ],
+        "need": [
+          377
+        ],
+        "technology": [
+          379
+        ],
+        "workforce": [
+          381
+        ],
+        "development": [
+          382
+        ],
+        "realize": [
+          384
+        ],
+        "potential": [
+          386
+        ],
+        "physician-artificial": [
+          388
+        ],
+        "intelligence": [
+          389
+        ],
+        "collaboration": [
+          390
+        ],
+        "practice.": [
+          393
+        ],
+        "Trial": [
+          394
+        ],
+        "Registration:": [
+          395
+        ],
+        "ClinicalTrials.gov": [
+          396
+        ],
+        "Identifier:": [
+          397
+        ],
+        "NCT06157944.": [
+          398
+        ]
+      },
+      "cited_by_count": 578,
+      "referenced_works": [
+        "https://openalex.org/W1966976587",
+        "https://openalex.org/W2015769833",
+        "https://openalex.org/W2019221080",
+        "https://openalex.org/W2020907317",
+        "https://openalex.org/W2029907219",
+        "https://openalex.org/W2037789405",
+        "https://openalex.org/W2068084886",
+        "https://openalex.org/W2069269993",
+        "https://openalex.org/W2076168232",
+        "https://openalex.org/W2090435067",
+        "https://openalex.org/W2099950126",
+        "https://openalex.org/W2111575166",
+        "https://openalex.org/W2159306398",
+        "https://openalex.org/W2164973508",
+        "https://openalex.org/W2168490582",
+        "https://openalex.org/W2339530503",
+        "https://openalex.org/W2552482844",
+        "https://openalex.org/W2911290735",
+        "https://openalex.org/W2955744164",
+        "https://openalex.org/W3159307263",
+        "https://openalex.org/W3202293436",
+        "https://openalex.org/W4283731530",
+        "https://openalex.org/W4294214983",
+        "https://openalex.org/W4294316742",
+        "https://openalex.org/W4306767166",
+        "https://openalex.org/W4360891289",
+        "https://openalex.org/W4366549904",
+        "https://openalex.org/W4367310920",
+        "https://openalex.org/W4380730209",
+        "https://openalex.org/W4384071683",
+        "https://openalex.org/W4384561103",
+        "https://openalex.org/W4386867830",
+        "https://openalex.org/W4389041771",
+        "https://openalex.org/W4389156617",
+        "https://openalex.org/W4389325518",
+        "https://openalex.org/W4390673899",
+        "https://openalex.org/W4390833194",
+        "https://openalex.org/W4391170193",
+        "https://openalex.org/W4391301614",
+        "https://openalex.org/W4391995913",
+        "https://openalex.org/W6847068047"
+      ]
+    },
+    {
+      "id": "https://openalex.org/W4385430086",
+      "doi": "https://doi.org/10.1038/s41562-023-01659-w",
+      "title": "Emergent analogical reasoning in large language models",
+      "publication_date": "2023-07-31",
+      "primary_location": {
+        "id": "doi:10.1038/s41562-023-01659-w",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1038/s41562-023-01659-w",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S2764866340",
+          "display_name": "Nature Human Behaviour",
+          "issn_l": "2397-3374",
+          "issn": [
+            "2397-3374"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310319908",
+          "host_organization_name": "Nature Portfolio",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310319908",
+            "https://openalex.org/P4310319965"
+          ],
+          "host_organization_lineage_names": [
+            "Nature Portfolio",
+            "Springer Nature"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Nature Human Behaviour",
+        "raw_type": "journal-article"
+      },
+      "authorships": [
+        {
+          "author": {
+            "display_name": "Taylor W. Webb"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Keith J. Holyoak"
+          }
+        },
+        {
+          "author": {
+            "display_name": "Hongjing Lu"
+          }
+        }
+      ],
+      "abstract_inverted_index": null,
+      "cited_by_count": 381,
+      "referenced_works": [
+        "https://openalex.org/W1643512742",
+        "https://openalex.org/W1975346989",
+        "https://openalex.org/W1980169328",
+        "https://openalex.org/W1997480541",
+        "https://openalex.org/W2003534453",
+        "https://openalex.org/W2009407994",
+        "https://openalex.org/W2011301426",
+        "https://openalex.org/W2012742936",
+        "https://openalex.org/W2013494846",
+        "https://openalex.org/W2026161499",
+        "https://openalex.org/W2035701280",
+        "https://openalex.org/W2038227658",
+        "https://openalex.org/W2046819740",
+        "https://openalex.org/W2048921251",
+        "https://openalex.org/W2067737176",
+        "https://openalex.org/W2107139863",
+        "https://openalex.org/W2118450042",
+        "https://openalex.org/W2145454741",
+        "https://openalex.org/W2161418887",
+        "https://openalex.org/W2164291529",
+        "https://openalex.org/W2181523240",
+        "https://openalex.org/W2566388524",
+        "https://openalex.org/W2625237928",
+        "https://openalex.org/W2913142708",
+        "https://openalex.org/W2963305465",
+        "https://openalex.org/W2996819463",
+        "https://openalex.org/W3003257820",
+        "https://openalex.org/W3018460450",
+        "https://openalex.org/W3035965352",
+        "https://openalex.org/W3041095841",
+        "https://openalex.org/W3088418428",
+        "https://openalex.org/W3092484258",
+        "https://openalex.org/W3099878876",
+        "https://openalex.org/W3103145119",
+        "https://openalex.org/W3150839556",
+        "https://openalex.org/W3177100526",
+        "https://openalex.org/W3177813494",
+        "https://openalex.org/W4206698690",
+        "https://openalex.org/W4210910017",
+        "https://openalex.org/W4226278401",
+        "https://openalex.org/W4235344441",
+        "https://openalex.org/W4241470378",
+        "https://openalex.org/W4243390178",
+        "https://openalex.org/W4281481998",
+        "https://openalex.org/W4281690148",
+        "https://openalex.org/W4285594979",
+        "https://openalex.org/W4287554891",
+        "https://openalex.org/W4300978529",
+        "https://openalex.org/W4317463334",
+        "https://openalex.org/W4318919287",
+        "https://openalex.org/W4327810158",
+        "https://openalex.org/W4360977202",
+        "https://openalex.org/W6739901393",
+        "https://openalex.org/W6778883912",
+        "https://openalex.org/W6785655149",
+        "https://openalex.org/W6838461927",
+        "https://openalex.org/W6969259846"
+      ]
+    }
+  ]
+}

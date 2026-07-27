@@ -1,0 +1,284 @@
+{
+  "group": [
+    {
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.1007/978-981-92-1468-6_35",
+            "external-id-normalized": {
+              "value": "10.1007/978-981-92-1468-6_35",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.1007/978-981-92-1468-6_35"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 217080494,
+          "title": {
+            "title": {
+              "value": "AIssistant: Human-AI Collaborative Review and\u00a0Perspective Research Workflows in\u00a0Data Science"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": null,
+            "day": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.1007/978-981-92-1468-6_35",
+                "external-id-normalized": {
+                  "value": "10.1007/978-981-92-1468-6_35",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.1007/978-981-92-1468-6_35"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "type": "book-chapter"
+        }
+      ]
+    },
+    {
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.48550/ARXIV.2605.03205",
+            "external-id-normalized": {
+              "value": "10.48550/arxiv.2605.03205",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.48550/ARXIV.2605.03205"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 214271204,
+          "title": {
+            "title": {
+              "value": "From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": null,
+            "day": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.48550/ARXIV.2605.03205",
+                "external-id-normalized": {
+                  "value": "10.48550/arxiv.2605.03205",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.48550/ARXIV.2605.03205"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "type": "report"
+        }
+      ]
+    },
+    {
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.48550/ARXIV.2605.16616",
+            "external-id-normalized": {
+              "value": "10.48550/arxiv.2605.16616",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.48550/ARXIV.2605.16616"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 221618817,
+          "title": {
+            "title": {
+              "value": "MLReplicate: Benchmarking Autonomous Research Systems for Machine Learning Reproducibility"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "publication-date": {
+            "year": {
+              "value": "2026"
+            },
+            "month": null,
+            "day": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.48550/ARXIV.2605.16616",
+                "external-id-normalized": {
+                  "value": "10.48550/arxiv.2605.16616",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.48550/ARXIV.2605.16616"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "type": "conference-paper"
+        }
+      ]
+    },
+    {
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.48550/ARXIV.2509.12282",
+            "external-id-normalized": {
+              "value": "10.48550/arxiv.2509.12282",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.48550/ARXIV.2509.12282"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 194082518,
+          "title": {
+            "title": {
+              "value": "AIssistant: An Agentic Approach for Human-AI Collaborative Scientific Work on Reviews and Perspectives in Machine Learning"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "publication-date": {
+            "year": {
+              "value": "2025"
+            },
+            "month": null,
+            "day": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.48550/ARXIV.2509.12282",
+                "external-id-normalized": {
+                  "value": "10.48550/arxiv.2509.12282",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.48550/ARXIV.2509.12282"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "type": "preprint"
+        }
+      ]
+    },
+    {
+      "external-ids": {
+        "external-id": [
+          {
+            "external-id-type": "doi",
+            "external-id-value": "10.48550/ARXIV.2009.01303",
+            "external-id-normalized": {
+              "value": "10.48550/arxiv.2009.01303",
+              "transient": true
+            },
+            "external-id-normalized-error": null,
+            "external-id-url": {
+              "value": "https://doi.org/10.48550/ARXIV.2009.01303"
+            },
+            "external-id-relationship": "self"
+          }
+        ]
+      },
+      "work-summary": [
+        {
+          "put-code": 187427439,
+          "title": {
+            "title": {
+              "value": "Comparative Evaluation of Pretrained Transfer Learning Models on Automatic Short Answer Grading"
+            },
+            "subtitle": null,
+            "translated-title": null
+          },
+          "publication-date": {
+            "year": {
+              "value": "2020"
+            },
+            "month": null,
+            "day": null
+          },
+          "external-ids": {
+            "external-id": [
+              {
+                "external-id-type": "doi",
+                "external-id-value": "10.48550/ARXIV.2009.01303",
+                "external-id-normalized": {
+                  "value": "10.48550/arxiv.2009.01303",
+                  "transient": true
+                },
+                "external-id-normalized-error": null,
+                "external-id-url": {
+                  "value": "https://doi.org/10.48550/ARXIV.2009.01303"
+                },
+                "external-id-relationship": "self"
+              }
+            ]
+          },
+          "type": "preprint"
+        }
+      ]
+    }
+  ]
+}

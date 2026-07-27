@@ -1,0 +1,78 @@
+[general]
+contact_email = "you@example.com"
+
+[profile]
+orcid_id = "0000-0000-0000-0000"
+profile_md_path = "profile.md"
+recency_half_life_days = 365
+profile_md_dominance = 2.0
+
+[topics]
+arxiv_categories = ["cs.AI", "cs.LG"]
+keywords = [
+    "example keyword one",
+    "example keyword two",
+]
+
+[sources.arxiv]
+enabled = true
+max_results_per_query = 200
+lookback_days = 2
+min_request_interval_seconds = 3.0
+
+[sources.openalex]
+enabled = true
+max_results = 200
+lookback_days = 14
+citation_graph_enabled = true
+citation_graph_max_seed_works = 25
+
+[sources.semanticscholar]
+enabled = true
+api_key_in_keychain = false
+base_delay_seconds = 1.0
+max_retries = 2
+
+[sources.scholar_alerts]
+enabled = false
+imap_host = ""
+imap_port = 993
+imap_username = ""
+mail_folder = "Scholar Alerts"
+mark_as_read = false
+lookback_days = 2
+
+[scoring]
+candidate_cap = 1000
+shortlist_size = 15
+recent_slots = 2
+tfidf_max_features = 20000
+weight_tfidf = 1.0
+weight_citation_graph = 0.5
+weight_coauthor = 0.3
+weight_keyword = 0.2
+weight_feedback = 0.4
+
+[llm]
+provider = "openrouter"
+model = "anthropic/claude-sonnet-5"
+api_base = "https://openrouter.ai/api/v1/chat/completions"
+timeout_seconds = 60
+max_retries = 2
+
+[delivery]
+notification = false
+email = true
+
+[delivery.smtp]
+smtp_host = "smtp.example.com"
+smtp_port = 587
+smtp_starttls = true
+from_address = "you@example.com"
+to_address = "you@example.com"
+smtp_username = "you@example.com"
+subject_prefix = "[recto]"
+
+[schedule]
+hour = 8
+minute = 0

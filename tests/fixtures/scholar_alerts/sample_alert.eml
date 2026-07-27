@@ -1,0 +1,45 @@
+Content-Type: multipart/alternative;
+ boundary="===============2886715800765210228=="
+MIME-Version: 1.0
+Subject: New citations to your articles
+From: scholaralerts-noreply@google.com
+To: user@example.com
+Date: Thu, 23 Jul 2026 08:00:00 +0000
+
+--===============2886715800765210228==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+Deep Learning for Neurosymbolic Reasoning
+https://scholar.google.com/scholar_url?url=https://arxiv.org/abs/2507.12345
+
+Scaling Laws for Multi-Agent Systems
+https://scholar.google.com/scholar_url?url=https://openreview.net/forum%3Fid%3Dabc123
+
+--===============2886715800765210228==
+Content-Type: text/html; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<html><body>
+<div id="gs_alrt_bdy">
+<h3 class="gs_alrt_title">
+<a href="https://scholar.google.com/scholar_url?url=https://arxiv.org/abs/2507.12345&amp;hl=en">
+Deep Learning for Neurosymbolic Reasoning
+</a></h3>
+<div class="gs_alrt_sni">J Smith, A Lee - arXiv preprint, 2026<br>
+We propose a new method for combining neural networks with symbolic
+reasoning that improves interpretability on benchmark tasks&hellip;</div>
+
+<h3 class="gs_alrt_title">
+<a href="https://scholar.google.com/scholar_url?url=https://openreview.net/forum%3Fid%3Dabc123&amp;hl=en">
+Scaling Laws for Multi-Agent Systems
+</a></h3>
+<div class="gs_alrt_sni">K Zhang - NeurIPS, 2026<br>
+This paper studies how the performance of multi-agent reinforcement
+learning systems scales with the number of agents&hellip;</div>
+</div>
+</body></html>
+
+--===============2886715800765210228==--

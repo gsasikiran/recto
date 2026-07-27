@@ -1,0 +1,2237 @@
+{
+  "id": "https://openalex.org/W7160396947",
+  "doi": "https://doi.org/10.48550/arxiv.2605.03205",
+  "title": "From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry",
+  "publication_date": "2026-05-04",
+  "primary_location": {
+    "id": "pmh:oai:nottingham-repository.worktribe.com:64454865",
+    "is_oa": true,
+    "landing_page_url": "https://nottingham-repository.worktribe.com/64454865/1/From%20Knowledge%20to%20Action%3A%20Outcomes%20of%20the%202025%20Large%20Language%20Models%20%28LLM%29%20Hackathon%20for%20Applications%20in%20Materials%20Science%20and%20Chemistry",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S4306402483",
+      "display_name": "Repository@Nottingham (University of Nottingham)",
+      "issn_l": null,
+      "issn": null,
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": false,
+      "host_organization": "https://openalex.org/I142263535",
+      "host_organization_name": "University of Nottingham",
+      "host_organization_lineage": [
+        "https://openalex.org/I142263535"
+      ],
+      "host_organization_lineage_names": [],
+      "type": "repository"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "submittedVersion",
+    "is_accepted": false,
+    "is_published": false,
+    "raw_source_name": null,
+    "raw_type": "Preprint / Working Paper"
+  },
+  "authorships": [
+    {
+      "author": {
+        "display_name": "Aritra Roy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kevin Shen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Andrew MacBride"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Awwal Oladipupo"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mudassra Taskeen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Wojtek Treyde"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ruaa A. E. A. Abakar"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ahmad D. Abbas"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Elsayed Abdelfatah"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abbas A. Abdullahi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Seham S. Abyah"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Chahd Rahyl Adjmi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Fariha Agbere"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Savyasanchi Aggarwal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muhammad Ahmed"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tasnim Ahmed"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Motasem Ajlouni"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mattias Akke"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hussein Aladwan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Anwaar S. Alazani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Zahra A. Alharbi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Wajd A. Aljulyhi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohammed A. AlKubaish"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Fatima A. Almahri"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sayed A. Almohri"
+      }
+    },
+    {
+      "author": {
+        "display_name": "David Obeh Alobo"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohammed Alouni"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Azizah S. Alqahtani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Omar Alsaigh"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Husain Althagafi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Md. Aqib Aman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Lena Ara"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Arifin"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ignacio Arretche"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abdulaziz Ashy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Syeda A. Asim"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Amro Aswad"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Adeel Atta"
+      }
+    },
+    {
+      "author": {
+        "display_name": "S\u00f6ren Auer"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abdullah al Azmi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Toheeb Balogun"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Suvo Banik"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Viktoriia Baibakova"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shakira A. Baksh"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Neus G. Bast\u00fas"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Christina J. Bayard"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Adib Bazgir"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Louis Beal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Lejla Biberi\u0107"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Wahid Billah"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ankita Biswas"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Joshua Bocarsly"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Montassar T. Bouzidi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Esma B. Boydas"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Youssef Briki"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Cailin Buchanan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mauricio Cafiero"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Damien Caliste"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yi Cao"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rafael E. Casta\u00f1eda"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sruthy K. Chandy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Benjamin Charmes"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shayantan Chaudhuri"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yiming Chen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alexander Chen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jieneng Chen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Min\u2013Hsueh Chiu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Defne \u00c7\u0131rc\u0131"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Cinthya H. Contreras"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yoann Cur\u00e9"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nathan Daelman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Roshini Dantuluri"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Thomas Davy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "William Dawson"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Leonid Didukh"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rui Ding"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Aminu R. Doguwa"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Claudia Draxl"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sathya Edamadaka"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Oulaya Elargab"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Christina Ertural"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Matthew L. Evans"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Edvin Fako"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hossam Farag"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nur A. Fathurrahman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Merve Fedai"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rodrigo P. Ferreira"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Giuseppe Fisicaro"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Thomas Frank"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sasi K. Gaddipati"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abhijeet Gangan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jennifer Garland"
+      }
+    },
+    {
+      "author": {
+        "display_name": "James Garrick"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Luigi Genovese"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Maryam Ghadrdran"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sandip Giri"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Maxime Goulet"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jeremy Goumaz"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sara U. Gracia"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jacob Graham"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Gabriel Graves"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kevin P. Greenman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tim Greitemeier"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Cameron Gruich"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sophie Gu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Salom\u00e9 Guilbert"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hans Gundlach"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muriel F. Gusta"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mourad El Haddaoui"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alexander J. Haibel"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Anubhab Haldar"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Vehaan Handa"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hassan Harb"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nathan D. Harms"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abdullah Al Hasan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abir Hassan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Qiyao He"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Andr\u00e9s Henao-Aristiz\u00e1bal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Bram Hoex"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sungil Hong"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alexander J. Horvath"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Md Shaib Hossain"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yanqi Huang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yuqing Huang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kostiantyn Hubaiev"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Donald Intal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Katherine Inzani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kevin Ishimwe"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tugba Isik"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Gopal R. Iyer"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Katharina Jager"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jan Janssen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hyewon Jeong"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Michael Jir\u00e1sek"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tyler R. Josephson"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nisarg Joshi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yassir Ben Kacem"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Remya A. M. Kalapurakal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rakesh R. Kamath"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sugan Kanagasenthinathan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Dohun Kang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jason Kantorow"
+      }
+    },
+    {
+      "author": {
+        "display_name": "K\u00fcbra Kaygisiz"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Murat Ke\u00e7eli"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Farhana Keya"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muhammad Masood Ur Rauf Hiraj Khan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sartaaj Takrim Khan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hyungjun Kim"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alexander Kister"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sascha Klawohn"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Collin Kovacs"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Pranav Krishnan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Maurycy Kryzanowski"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ritesh Kumar"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Suman Kumari"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Gourav Kumbhojkar"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ryo Kuroki"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shashank Kushwaha"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Magdalena Lederbauer"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jaejun Lee"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Seunghan Lee"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jeonghwan Lee"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Bingcan Li"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Calvin Li"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Zhanzhao Li"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shi Li"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shicheng Li"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Chengyan Liu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hao Liu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tung Yan Liu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yutong Liu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Lucia Vina-Lopez"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Chayaphol Lortaraparsert"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Andre K. Y. Low"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Saffron Luxford"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Carlos Madariaga"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rishikesh Magar"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Piyush R. Maharana"
+      }
+    },
+    {
+      "author": {
+        "display_name": "R. Mallela"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shoaib Mahmud"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Natesan Mani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Umair Mansoor"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Omar B. Mansour"
+      }
+    },
+    {
+      "author": {
+        "display_name": "C. A. Masschelein"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kinga O. Mastej"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ankit Mathanker"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jeffrey Meng"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Omran Mezghani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yidong Ming"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rishav Mitra"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Michail Mitsakis"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Matthew Miyagishima"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ravikumar Mohan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Naveen R. Mohanraj"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Trupti Mohanty"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Bernadette Mohr"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Francisco A. Molina-Bakhos"
+      }
+    },
+    {
+      "author": {
+        "display_name": "J.P. Monat"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Seyed Mohamad Moosavi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shayan Mousavi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Arman Moussavi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rubel Mozumber"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muhammad J. Mufti"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Diyana Muhammed"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ram Munde"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mrigi Munjal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jos\u00e9 A. M\u00e1rquez"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shankha Nag"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Giacomo Nagaro"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Juno Nam"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jose M. Napoles-Duarte"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ry Nduma"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Xuan-Vu Nguyen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ebrahim Norouzi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Oluwatosin Ohiro"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ryotaro Okabe"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Viejay Ordillo"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shuichiro Ozawa"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sebastian Pagel"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Daniel Palmer"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Angela Pan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Akash Pandey"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Vivek Pandit"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Prakul Pandit"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Chiku Parida"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jaehee Park"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hyunsoo Park"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hemangi Patel"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shakul Pathak"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Taradutt Pattnaik"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Elena Patyukova"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Noah Paulson"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Deepak S. Pendyala"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Erick S. Pepek"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Martin H. Petersen"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Thang D. Pham"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Aniket Phutane"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sabila K. Pinky"
+      }
+    },
+    {
+      "author": {
+        "display_name": "\u00c9tienne Polack"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alison Polasik"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Maria Politi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tim Pongratz"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Akhila Ponugoti"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Fabio Priante"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Thomas Michael Pruyn"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sai S. Puppala"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohammad A. Qazi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Heike Quosdorf"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Gollam Rabby"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohammad J. Raei"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Md. Mahbubur Rahman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "A. B. M. Ashikur Rahman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Subhashree Rajasekaran"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tawfiqur Rakib"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hemanth N. Ramesh"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Vrushali Ranadive"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Karnamohit Ranka"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Bojana Rankovi\u0107"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Adwaith Ravichandran"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ilija Ra\u0161ovi\u0107"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sergei Rigin"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tatem Rios"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Varun Rishi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Victor Naden Robinson"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Lucas S. Rodrigues"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Oswaldo Rodriguez"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mahule Roy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Diptendu Roy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Subhas Roy"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Arokia Anto Royan M"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Joseph F. Rudzinski"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muhammad Sabih"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Subramanyam Sahoo"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Srusti Bheem Sain"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Thahira Saliya"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Vignesh Sampath"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jesus Diaz Sanchez"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Arthur S. S. Santos"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Muliady Satria"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hasan M. Sayeed"
+      }
+    },
+    {
+      "author": {
+        "display_name": "J\u00f6rg Schaarschmidt"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Philippe Schwaller"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nofit Segal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abhishec Senthilvel"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sherjeel Shabih"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Devanshu Shah"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Faezeh Shahmoradi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Samiha Sharlin"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Killian Sheriff"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Qiuyu Shi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abubakar D. Shuaibu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ayesha Siddiqua"
+      }
+    },
+    {
+      "author": {
+        "display_name": "M. A. Shadab Siddiqui"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Darian Smalley"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Benjamin Smith"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Taylor D. Sparks"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Daniel T. Speckhard"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Elena Stojanovska"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Akshay Subramanian"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jiwon Sun"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yunkai Sun"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Abdul W. Syed"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Souvik Ta"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Izumi Takahara"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kelly Tallau"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Guannan Tang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ans B. Tariq"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sui X. Tay"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nurlybek Temirbay"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Surya P. Tiwari"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Febin Tom"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tajah Trapier"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Kasidet J. Trerayapiwat"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Samanvya Tripathi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hawra H. Tuhaifa"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mustafa Unal"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohammad Uzair"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Vallabh Vasudevan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Estefania Vazquez"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Victor Venturi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Rahul Verma"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ashwini Verma"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alvaro Vazquez-Mayagoitia"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nicholas Wagner"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Araki Wakiuchi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Hao Wan"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Liaoyaqi Wang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Wolfgang Wenzel"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Alexander Wieczorek"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Sze H. Wong"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yue Wu"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Tong Xie"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Andrew Yi"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ziqi Yin"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Jodie A. Yuwono"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Nahed A. Zaid"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mohd Zaki"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Shehtab Zaman"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Maimuna U. Zarewa"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Mahtab Zehtab"
+      }
+    },
+    {
+      "author": {
+        "display_name": "B. Y. Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Wenyu Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Melody Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yangfan Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yuwen Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Runze Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Zongmin Zhang"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Huanhuan Zhao"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Yu Zheng"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ramzi Zidani"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Xue Zong"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ian Foster"
+      }
+    },
+    {
+      "author": {
+        "display_name": "Ben Blaiszik"
+      }
+    }
+  ],
+  "abstract_inverted_index": {
+    "Large": [
+      0
+    ],
+    "language": [
+      1
+    ],
+    "models": [
+      2
+    ],
+    "(LLMs)": [
+      3
+    ],
+    "are": [
+      4,
+      137
+    ],
+    "rapidly": [
+      5
+    ],
+    "changing": [
+      6
+    ],
+    "how": [
+      7,
+      39
+    ],
+    "researchers": [
+      8
+    ],
+    "in": [
+      9,
+      31,
+      38,
+      168
+    ],
+    "materials": [
+      10,
+      169
+    ],
+    "science": [
+      11,
+      170
+    ],
+    "and": [
+      12,
+      16,
+      65,
+      69,
+      82,
+      104,
+      120,
+      124,
+      148,
+      159,
+      171
+    ],
+    "chemistry": [
+      13
+    ],
+    "discover,": [
+      14
+    ],
+    "organize,": [
+      15
+    ],
+    "act": [
+      17
+    ],
+    "on": [
+      18
+    ],
+    "scientific": [
+      19,
+      47,
+      67,
+      78,
+      122,
+      146
+    ],
+    "knowledge.": [
+      20
+    ],
+    "This": [
+      21,
+      150
+    ],
+    "paper": [
+      22
+    ],
+    "analyzes": [
+      23
+    ],
+    "a": [
+      24,
+      88,
+      153,
+      160
+    ],
+    "broad": [
+      25
+    ],
+    "set": [
+      26
+    ],
+    "of": [
+      27,
+      156
+    ],
+    "community-developed": [
+      28
+    ],
+    "LLM": [
+      29,
+      92
+    ],
+    "applications": [
+      30
+    ],
+    "an": [
+      32
+    ],
+    "effort": [
+      33
+    ],
+    "to": [
+      34
+    ],
+    "identify": [
+      35
+    ],
+    "emerging": [
+      36,
+      165
+    ],
+    "patterns": [
+      37
+    ],
+    "these": [
+      40,
+      132
+    ],
+    "systems": [
+      41,
+      60,
+      72
+    ],
+    "can": [
+      42
+    ],
+    "be": [
+      43
+    ],
+    "used": [
+      44
+    ],
+    "across": [
+      45,
+      80
+    ],
+    "the": [
+      46,
+      52
+    ],
+    "research": [
+      48
+    ],
+    "lifecycle.": [
+      49
+    ],
+    "We": [
+      50
+    ],
+    "organize": [
+      51
+    ],
+    "projects": [
+      53
+    ],
+    "into": [
+      54,
+      142
+    ],
+    "two": [
+      55
+    ],
+    "complementary": [
+      56
+    ],
+    "categories:": [
+      57
+    ],
+    "Knowledge": [
+      58
+    ],
+    "Infrastructure,": [
+      59
+    ],
+    "that": [
+      61,
+      73,
+      98,
+      135,
+      157
+    ],
+    "structure,": [
+      62
+    ],
+    "retrieve,": [
+      63
+    ],
+    "synthesize,": [
+      64
+    ],
+    "validate": [
+      66
+    ],
+    "information;": [
+      68
+    ],
+    "Action": [
+      70
+    ],
+    "Systems,": [
+      71
+    ],
+    "execute,": [
+      74
+    ],
+    "coordinate,": [
+      75
+    ],
+    "or": [
+      76
+    ],
+    "automate": [
+      77
+    ],
+    "work": [
+      79,
+      151
+    ],
+    "computational": [
+      81
+    ],
+    "experimental": [
+      83
+    ],
+    "environments.": [
+      84
+    ],
+    "The": [
+      85
+    ],
+    "submissions": [
+      86
+    ],
+    "reveal": [
+      87
+    ],
+    "shift": [
+      89
+    ],
+    "from": [
+      90,
+      139
+    ],
+    "single-purpose": [
+      91
+    ],
+    "tools": [
+      93
+    ],
+    "toward": [
+      94,
+      127
+    ],
+    "integrated,": [
+      95
+    ],
+    "multi-agent": [
+      96
+    ],
+    "workflows": [
+      97,
+      167
+    ],
+    "combine": [
+      99
+    ],
+    "retrieval,": [
+      100
+    ],
+    "reasoning,": [
+      101
+    ],
+    "tool": [
+      102
+    ],
+    "use,": [
+      103
+    ],
+    "domain-specific": [
+      105
+    ],
+    "validation.": [
+      106
+    ],
+    "Prominent": [
+      107
+    ],
+    "themes": [
+      108
+    ],
+    "include": [
+      109
+    ],
+    "retrieval-augmented": [
+      110
+    ],
+    "generation": [
+      111
+    ],
+    "as": [
+      112
+    ],
+    "grounding": [
+      113
+    ],
+    "infrastructure,": [
+      114
+    ],
+    "persistent": [
+      115
+    ],
+    "structured": [
+      116
+    ],
+    "knowledge": [
+      117
+    ],
+    "representations,": [
+      118
+    ],
+    "multimodal": [
+      119
+    ],
+    "multilingual": [
+      121
+    ],
+    "inputs,": [
+      123
+    ],
+    "early": [
+      125
+    ],
+    "progress": [
+      126
+    ],
+    "laboratory-integrated": [
+      128
+    ],
+    "closed-loop": [
+      129
+    ],
+    "systems.": [
+      130
+    ],
+    "Together,": [
+      131
+    ],
+    "results": [
+      133
+    ],
+    "suggest": [
+      134
+    ],
+    "LLMs": [
+      136
+    ],
+    "evolving": [
+      138
+    ],
+    "general-purpose": [
+      140
+    ],
+    "assistants": [
+      141
+    ],
+    "composable": [
+      143
+    ],
+    "infrastructure": [
+      144
+    ],
+    "for": [
+      145,
+      163
+    ],
+    "reasoning": [
+      147
+    ],
+    "action.": [
+      149
+    ],
+    "provides": [
+      152
+    ],
+    "community": [
+      154
+    ],
+    "snapshot": [
+      155
+    ],
+    "transition": [
+      158
+    ],
+    "practical": [
+      161
+    ],
+    "taxonomy": [
+      162
+    ],
+    "understanding": [
+      164
+    ],
+    "LLM-enabled": [
+      166
+    ],
+    "chemistry.": [
+      172
+    ]
+  },
+  "cited_by_count": 0,
+  "referenced_works": []
+}
