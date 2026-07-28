@@ -22,7 +22,7 @@ def test_build_plist_has_expected_schedule_and_paths(tmp_path):
     assert plist["ProgramArguments"][1:] == ["run", "recto", "run"]
     assert plist["WorkingDirectory"] == str(tmp_path.resolve())
     assert plist["EnvironmentVariables"]["RECTO_HOME"] == str(tmp_path.resolve())
-    assert plist["RunAtLoad"] is False
+    assert plist["RunAtLoad"] is True
 
 
 def test_write_plist_produces_valid_plist_xml(tmp_path):

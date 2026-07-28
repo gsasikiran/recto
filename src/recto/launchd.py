@@ -2,6 +2,11 @@
 long-lived daemon. If the Mac was asleep at the scheduled time, launchd
 fires on wake — that's what makes this behave like "first time you open
 your Mac each day" rather than needing an always-on watcher process.
+
+Sleep/wake catches up on its own, but a full shutdown/reboot spanning the
+scheduled time does not — a fresh launchd has no memory of a missed slot
+and just waits for the next one. RunAtLoad covers that gap: the run is
+idempotent, so an extra trigger at login/boot is harmless.
 """
 
 from __future__ import annotations
@@ -34,7 +39,7 @@ def build_plist(home: Path, cfg: config.Config) -> dict:
         "StartCalendarInterval": {"Hour": cfg.schedule.hour, "Minute": cfg.schedule.minute},
         "StandardOutPath": str(logs / "recto.out.log"),
         "StandardErrorPath": str(logs / "recto.err.log"),
-        "RunAtLoad": False,
+        "RunAtLoad": True,
     }
 
 
