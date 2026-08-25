@@ -47,6 +47,10 @@ jobs:
       # The smoke run is the other half: real directories, the real secret
       # store, and the OS's own validator for the scheduler artifact.
       - name: platform smoke
+        # Runs even when pytest fails: the smoke checks are the only place
+        # some platform code executes at all (DPAPI, schtasks), and a
+        # failing unit test must not hide whether they work.
+        if: '!cancelled()'
         run: uv run python scripts/platform_smoke.py
 
   # The digest is written and read as UTF-8 everywhere. A Windows runner
@@ -68,6 +72,7 @@ jobs:
           PYTHONIOENCODING: cp1252
         run: uv run pytest -q
       - name: platform smoke with UTF-8 mode disabled
+        if: '!cancelled()'
         env:
           PYTHONUTF8: "0"
           PYTHONIOENCODING: cp1252

@@ -4,14 +4,21 @@ from recto.net import RateLimiter, request
 
 
 def test_rate_limiter_enforces_min_interval():
-    limiter = RateLimiter(min_interval_seconds=0.05)
     import time
+
+    interval = 0.05
+    limiter = RateLimiter(min_interval_seconds=interval)
 
     start = time.monotonic()
     limiter.wait()
     limiter.wait()
     elapsed = time.monotonic() - start
-    assert elapsed >= 0.05
+
+    # time.sleep() can return a few ms early relative to monotonic() — the
+    # Windows timer granularity is ~15ms, and a 50ms sleep there measures
+    # ~47ms. Assert the limiter waited, not that the OS clock is exact; the
+    # real intervals this guards (arXiv's 3s) have all the slack they need.
+    assert elapsed >= interval * 0.9
 
 
 def test_request_retries_on_429_then_succeeds(monkeypatch):

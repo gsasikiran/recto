@@ -2,6 +2,7 @@
 invoked, and the file store is pointed at a tmp dir via RECTO_DATA_DIR, so
 these run identically on every platform."""
 
+import os
 import subprocess
 
 import pytest
@@ -63,6 +64,15 @@ def test_file_store_roundtrip_and_delete(monkeypatch):
     assert keychain.get_secret(keychain.SERVICE_IMAP, "me@example.com") is None
 
 
+@pytest.mark.skipif(
+    os.name == "nt",
+    reason=(
+        "POSIX modes are meaningless on NTFS — chmod there only toggles the "
+        "read-only bit, and stat() reports 0o666 whatever we do. Real Windows "
+        "runs take the IS_WINDOWS branch, which skips chmod and relies on the "
+        "per-user ACL on %LOCALAPPDATA% plus DPAPI on the payload."
+    ),
+)
 def test_file_store_is_not_world_readable(monkeypatch):
     _as_platform(monkeypatch, "linux")
     _no_cli(monkeypatch)
