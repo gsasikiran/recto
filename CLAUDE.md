@@ -4,15 +4,22 @@ Context for Claude Code working in this repo. Read this before making changes.
 
 ## What this is
 
-A lightweight macOS personal research assistant. Once a day it:
+A lightweight personal research assistant for macOS, Linux, and Windows.
+Once a day it:
 
 1. Pulls newly published papers from arXiv, OpenAlex, Semantic Scholar, and Google Scholar alerts.
 2. Scores them against a profile built from the user's own ORCID publication record plus a hand-written `profile.md`.
 3. Summarizes the top handful.
 4. Picks **one** paper as "read this today" and explains why.
-5. Delivers it as a macOS notification banner and an email to the user.
+5. Delivers it as a desktop notification banner and an email to the user.
 
 Single-user, local-first. Not a service, no accounts, no multi-tenancy.
+
+macOS is the primary development target; Linux and Windows are supported and
+must stay working. Platform differences are confined to four modules —
+`config.py` (paths), `keychain.py` (secrets), `scheduler.py` (daily run), and
+`deliver/notify.py` (banner). Nothing else in the codebase should branch on
+the OS or hardcode a platform path.
 
 ## Non-goals
 
@@ -54,9 +61,11 @@ recto/
     pick.py
     render.py              # Markdown + HTML
     deliver/
-      notify.py            # macOS banner
+      notify.py            # desktop banner (osascript / notify-send / PowerShell)
       email.py             # SMTP
     store.py               # SQLite
+    keychain.py            # OS secret store, one backend per platform
+    scheduler.py           # daily schedule: launchd / systemd / Task Scheduler
     cli.py
   digests/                 # YYYY-MM-DD.md
 ```
@@ -69,11 +78,23 @@ Every source module normalizes into this. Keep it stable.
 
 ### Storage
 
-SQLite at `~/Library/Application Support/recto/db.sqlite`. Tables: `papers`, `runs`, `profile_terms`. Papers are kept forever — they're tiny, and this is how the tool avoids re-recommending.
+SQLite at `<data dir>/db.sqlite`. Tables: `papers`, `runs`, `profile_terms`. Papers are kept forever — they're tiny, and this is how the tool avoids re-recommending.
+
+`config.data_dir()` and `config.logs_dir()` are the only places that know the per-OS locations: `~/Library/Application Support/recto` and `~/Library/Logs/recto` on macOS, XDG (`~/.local/share/recto`, `~/.local/state/recto/logs`) on Linux, `%LOCALAPPDATA%\recto` on Windows. `RECTO_DATA_DIR` / `RECTO_LOGS_DIR` override them. Call those functions; never rebuild the path.
+
+### Secrets
+
+`keychain.py` keeps its macOS-era name but dispatches per platform: `security` on macOS, `secret-tool` (libsecret) on Linux, a DPAPI-encrypted file on Windows, and a `0600` JSON file when none of those is reachable. A `RECTO_<SERVICE>_SECRET` environment variable takes priority everywhere, which is how a headless box runs with no keyring. Callers only ever touch `get_secret` / `set_secret` / `delete_secret`.
 
 ### Scheduling
 
-`launchd` user agent at `~/Library/LaunchAgents/com.<user>.recto.plist`, `StartCalendarInterval`, no long-lived daemon. If the Mac was asleep, launchd fires on wake — the run must tolerate "it's actually 3pm now."
+`scheduler.install_agent()` dispatches to one backend per OS, none of them a long-lived daemon:
+
+- **macOS** — launchd user agent at `~/Library/LaunchAgents/com.<user>.recto.plist`, `StartCalendarInterval` + `RunAtLoad`.
+- **Linux** — systemd user timer at `~/.config/systemd/user/recto.{service,timer}`, `OnCalendar` + `Persistent=true`. Needs `loginctl enable-linger` to fire without a login session.
+- **Windows** — Task Scheduler task registered via `schtasks /Create /XML` (the XML file must be UTF-16), `StartWhenAvailable` + a logon trigger.
+
+If the machine was asleep or off, every backend fires late — the run must tolerate "it's actually 3pm now." The run is idempotent, so the extra login/boot trigger is harmless.
 
 ## Sources
 
@@ -81,7 +102,7 @@ SQLite at `~/Library/Application Support/recto/db.sqlite`. Tables: `papers`, `ru
 
 **OpenAlex** — free, no key, but use the polite pool by putting a contact email in the User-Agent and `mailto` param. Primary use beyond keyword search: **citation-graph channels** — works citing the user's own papers, and new works citing the same references the user cites. These are usually higher-precision than keyword matching.
 
-**Semantic Scholar** — Graph API. Free tier is heavily rate-limited without a key; request one and store it in Keychain. Overlaps OpenAlex, so treat it as a secondary/enrichment source (abstracts, TLDRs) rather than a primary crawl. If it 429s, skip it silently.
+**Semantic Scholar** — Graph API. Free tier is heavily rate-limited without a key; request one and store it via `keychain.py`. Overlaps OpenAlex, so treat it as a secondary/enrichment source (abstracts, TLDRs) rather than a primary crawl. If it 429s, skip it silently.
 
 **Google Scholar** — there is no official API, and scraping it violates their terms and gets IP-blocked fast. Do **not** write a scraper. The supported path:
 
@@ -106,7 +127,7 @@ Feedback: `saved` weights terms up, `dismissed` down. Record the signal from day
 
 ## LLM usage
 
-- Anthropic Messages API via the official Python SDK. Key from Keychain or env, **never** in `config.toml` or the repo.
+- Anthropic Messages API via the official Python SDK. Key from the OS secret store or env, **never** in `config.toml` or the repo.
 - The model string is a config value, not a hardcoded constant. Check current model names at https://docs.claude.com/en/docs/about-claude/models before setting the default.
 - One batched request per digest, not one per paper.
 - Summaries: 2–3 sentences, plain language, must state what's new relative to prior work. No marketing tone.
@@ -117,17 +138,20 @@ Feedback: `saved` weights terms up, `dismissed` down. Record the signal from day
 
 Both channels fire on every successful run; each can be disabled in config.
 
-**Notification** — macOS banner with the paper-of-the-day title. Clicking opens today's digest. Use a signed helper or `terminal-notifier`; note that a plain `osascript` notification cannot carry a click action reliably.
+**Notification** — desktop banner with the paper-of-the-day title: `osascript` on macOS, `notify-send` on Linux, a PowerShell balloon tip on Windows. None of these carries a click action reliably (on macOS that needs a signed helper or `terminal-notifier`), so it's a banner only. A missing backend logs and skips; it never fails the run.
 
-**Email** — HTML digest sent over SMTP to the user's own address. Credentials in Keychain, never in config. Assume an app-specific password. Subject line carries the paper of the day so it's readable from the lock screen. The email is self-contained: no images, no tracking, links only.
+**Email** — HTML digest sent over SMTP to the user's own address. Credentials in the OS secret store, never in config. The SSL context is built from the live System Roots keychain on macOS only (the stdlib default there lags the OS trust store); Linux and Windows use `ssl.create_default_context()`. Assume an app-specific password. Subject line carries the paper of the day so it's readable from the lock screen. The email is self-contained: no images, no tracking, links only.
 
 ## Conventions
 
 - Python 3.11+, `uv` for dependencies.
 - Type hints everywhere; `ruff` for lint and format.
+- Cross-platform hygiene: always pass `encoding="utf-8"` to `read_text` / `write_text` / `FileHandler` (Windows defaults to the locale codepage), build paths with `pathlib`, and branch on `config.IS_MACOS` / `IS_LINUX` / `IS_WINDOWS` rather than reading `sys.platform` directly — tests monkeypatch those flags to exercise every OS branch from one machine.
 - All network calls go through one wrapper with timeout, backoff, and per-source rate limiting.
 - No secrets, no absolute user paths, no `digests/` contents committed.
 - Source parsers get fixture-based tests from recorded API responses. Tests never hit the network.
+- Tests never touch the real data dir or the real keychain — conftest's autouse `isolated_data_dir` fixture points `RECTO_DATA_DIR`/`RECTO_LOGS_DIR` at `tmp_path`, and platform CLIs are stubbed. The whole suite must pass on all three OSes.
+- `scripts/platform_smoke.py` is the unmocked counterpart: real directories, the real secret store, and the OS's own validator for the scheduler artifact. Add a check there whenever you touch a platform-specific path — a mocked test can't tell you the OS would reject the file. CI (`.github/workflows/ci.yml`) runs both on macOS/Ubuntu/Windows.
 
 ## Commands
 
@@ -138,7 +162,7 @@ uv run recto run --dry-run    # fetch + score, skip LLM and delivery
 uv run recto fetch            # sources only, print counts per source
 uv run recto show             # print latest digest to stdout
 uv run recto why <paper_id>   # print score breakdown for one paper
-uv run recto install-agent    # write and load the launchd plist
+uv run recto install-agent    # register the daily schedule with the OS
 ```
 
 ## Working agreement

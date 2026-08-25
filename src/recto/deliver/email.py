@@ -1,7 +1,7 @@
-"""SMTP delivery to the user's own address. Credentials come from Keychain,
-never config.toml. Raises on failure — cli.py catches it and marks the run
-degraded, but the digest markdown file is already written to disk regardless
-of delivery outcome.
+"""SMTP delivery to the user's own address. Credentials come from the OS
+secret store (see keychain.py), never config.toml. Raises on failure — cli.py
+catches it and marks the run degraded, but the digest markdown file is already
+written to disk regardless of delivery outcome.
 """
 
 from __future__ import annotations
@@ -12,17 +12,26 @@ import ssl
 import subprocess
 from email.message import EmailMessage
 
+from recto import config
+
 logger = logging.getLogger(__name__)
 
 
-def _macos_trust_context() -> ssl.SSLContext:
-    """Python's default SSL context reads a static /etc/ssl/cert.pem bundle
-    that lags behind macOS's actual trust store — newer roots (e.g. academic
-    CAs like HARICA, used by some institutional mail servers) are trusted by
-    macOS itself but missing from that file. Building the context from the
-    live System Roots keychain avoids spurious CERTIFICATE_VERIFY_FAILED
-    errors against servers whose cert chains are otherwise perfectly valid.
+def _trust_context() -> ssl.SSLContext:
+    """On macOS, Python's default SSL context reads a static /etc/ssl/cert.pem
+    bundle that lags behind the OS's actual trust store — newer roots (e.g.
+    academic CAs like HARICA, used by some institutional mail servers) are
+    trusted by macOS itself but missing from that file. Building the context
+    from the live System Roots keychain avoids spurious
+    CERTIFICATE_VERIFY_FAILED errors against servers whose cert chains are
+    otherwise perfectly valid.
+
+    Linux and Windows don't have that gap: OpenSSL reads the distro's CA
+    bundle directly, and on Windows Python's default context loads roots from
+    the system certificate store. Both use the stdlib default.
     """
+    if not config.IS_MACOS:
+        return ssl.create_default_context()
     try:
         result = subprocess.run(
             [
@@ -57,7 +66,7 @@ def send_email(
     password: str | None,
 ) -> None:
     if not password:
-        raise RuntimeError("no SMTP password available in Keychain")
+        raise RuntimeError("no SMTP password available in the secret store")
 
     msg = EmailMessage()
     msg["Subject"] = subject
@@ -68,6 +77,6 @@ def send_email(
 
     with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as smtp:
         if use_starttls:
-            smtp.starttls(context=_macos_trust_context())
+            smtp.starttls(context=_trust_context())
         smtp.login(username, password)
         smtp.send_message(msg)

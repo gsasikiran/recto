@@ -2,6 +2,7 @@ import smtplib
 
 import pytest
 
+from recto import config
 from recto.deliver import email as deliver_email
 
 
@@ -37,7 +38,7 @@ def fake_smtp(monkeypatch, request):
     # Avoid shelling out to `security` (real Keychain trust store) in tests,
     # except in the tests that specifically exercise that function.
     if "trust_context" not in request.node.name:
-        monkeypatch.setattr(deliver_email, "_macos_trust_context", lambda: "fake-context")
+        monkeypatch.setattr(deliver_email, "_trust_context", lambda: "fake-context")
     yield _FakeSMTP
 
 
@@ -100,6 +101,7 @@ def test_send_email_raises_when_no_password():
 def test_macos_trust_context_uses_keychain_cadata(monkeypatch):
     import subprocess
 
+    monkeypatch.setattr(config, "IS_MACOS", True)
     captured = {}
 
     def fake_run(args, **kwargs):
@@ -113,7 +115,7 @@ def test_macos_trust_context_uses_keychain_cadata(monkeypatch):
     monkeypatch.setattr(subprocess, "run", fake_run)
     monkeypatch.setattr("ssl.create_default_context", lambda cadata=None: ("context", cadata))
 
-    ctx = deliver_email._macos_trust_context()
+    ctx = deliver_email._trust_context()
     assert "SystemRootCertificates.keychain" in captured["args"][-1]
     assert ctx[1] is not None
 
@@ -121,10 +123,28 @@ def test_macos_trust_context_uses_keychain_cadata(monkeypatch):
 def test_macos_trust_context_falls_back_on_subprocess_failure(monkeypatch):
     import subprocess
 
+    monkeypatch.setattr(config, "IS_MACOS", True)
+
     def fake_run(args, **kwargs):
         raise FileNotFoundError("security not found")
 
     monkeypatch.setattr(subprocess, "run", fake_run)
 
-    ctx = deliver_email._macos_trust_context()
+    ctx = deliver_email._trust_context()
     assert ctx is not None  # falls back to ssl.create_default_context()
+
+
+def test_trust_context_off_macos_uses_stdlib_default(monkeypatch):
+    """Linux and Windows have no keychain to consult; shelling out to
+    `security` there would just fail on every send."""
+    import subprocess
+
+    monkeypatch.setattr(config, "IS_MACOS", False)
+
+    def explode(*a, **k):
+        raise AssertionError("must not shell out off macOS")
+
+    monkeypatch.setattr(subprocess, "run", explode)
+    monkeypatch.setattr("ssl.create_default_context", lambda cadata=None: ("context", cadata))
+
+    assert deliver_email._trust_context() == ("context", None)
