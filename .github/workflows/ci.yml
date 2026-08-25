@@ -1,9 +1,12 @@
 name: CI
 
 on:
+  # Every branch, not just main: this is a single-user repo where the work
+  # happens on feature branches, and a push there is the point at which you
+  # want to hear that Windows is unhappy. Same-repo PRs are covered by their
+  # branch pushes, so there's no `pull_request` trigger and no double runs.
   push:
-    branches: [main]
-  pull_request:
+    branches: ['**']
   workflow_dispatch:
 
 concurrency:
