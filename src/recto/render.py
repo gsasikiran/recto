@@ -120,5 +120,5 @@ def render_html_email(
 
 def write_digest(run_date: str, content: str, digests_dir: Path) -> Path:
     path = digests_dir / f"{run_date}.md"
-    path.write_text(content)
+    path.write_text(content, encoding="utf-8")
     return path

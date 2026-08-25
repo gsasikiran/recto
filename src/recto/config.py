@@ -3,11 +3,23 @@
 config.toml is only ever *written* by `recto bootstrap`, via the template
 string below — never by a TOML-writer library. It is read with stdlib
 tomllib. Secrets never live here; see keychain.py.
+
+This module is also the single place that knows where recto's data lives on
+each OS, so the rest of the codebase never hardcodes a platform path:
+
+  macOS    ~/Library/Application Support/recto,  ~/Library/Logs/recto
+  Linux    $XDG_DATA_HOME/recto  (~/.local/share/recto),
+           $XDG_STATE_HOME/recto/logs  (~/.local/state/recto/logs)
+  Windows  %LOCALAPPDATA%\\recto,  %LOCALAPPDATA%\\recto\\logs
+
+RECTO_DATA_DIR overrides the data location everywhere (useful for tests, a
+synced folder, or a portable install); RECTO_LOGS_DIR does the same for logs.
 """
 
 from __future__ import annotations
 
 import os
+import sys
 import tomllib
 from dataclasses import dataclass, field, fields
 from pathlib import Path
@@ -15,6 +27,10 @@ from typing import TypeVar
 
 DEFAULT_ARXIV_CATEGORIES = ["cs.AI", "cs.LG", "stat.ML", "cs.MA"]
 DEFAULT_LLM_MODEL = "anthropic/claude-sonnet-5"
+
+IS_MACOS = sys.platform == "darwin"
+IS_WINDOWS = os.name == "nt"
+IS_LINUX = sys.platform.startswith("linux")
 
 
 def home_dir() -> Path:
@@ -26,22 +42,50 @@ def config_path(home: Path | None = None) -> Path:
     return (home or home_dir()) / "config.toml"
 
 
-def app_support_dir() -> Path:
-    d = Path.home() / "Library" / "Application Support" / "recto"
+def env_dir(var: str) -> Path | None:
+    """Path from an environment variable, or None when it is unset/empty."""
+    value = os.environ.get(var)
+    return Path(value).expanduser() if value else None
+
+
+def data_dir() -> Path:
+    """Per-user data directory (SQLite db, profile index, file secret store)."""
+    d = env_dir("RECTO_DATA_DIR")
+    if d is None:
+        if IS_MACOS:
+            d = Path.home() / "Library" / "Application Support" / "recto"
+        elif IS_WINDOWS:
+            base = env_dir("LOCALAPPDATA") or Path.home() / "AppData" / "Local"
+            d = base / "recto"
+        else:
+            base = env_dir("XDG_DATA_HOME") or Path.home() / ".local" / "share"
+            d = base / "recto"
     d.mkdir(parents=True, exist_ok=True)
     return d
 
 
+# Kept as an alias: this was the macOS-only name before cross-platform support.
+app_support_dir = data_dir
+
+
 def db_path() -> Path:
-    return app_support_dir() / "db.sqlite"
+    return data_dir() / "db.sqlite"
 
 
 def profile_index_path() -> Path:
-    return app_support_dir() / "profile_index.pkl"
+    return data_dir() / "profile_index.pkl"
 
 
 def logs_dir() -> Path:
-    d = Path.home() / "Library" / "Logs" / "recto"
+    d = env_dir("RECTO_LOGS_DIR")
+    if d is None:
+        if IS_MACOS:
+            d = Path.home() / "Library" / "Logs" / "recto"
+        elif IS_WINDOWS:
+            d = data_dir() / "logs"
+        else:
+            base = env_dir("XDG_STATE_HOME") or Path.home() / ".local" / "state"
+            d = base / "recto" / "logs"
     d.mkdir(parents=True, exist_ok=True)
     return d
 
@@ -351,6 +395,7 @@ def write_default_config(
             orcid_id=orcid_id,
             email_address=email_address,
             arxiv_categories=arxiv_categories,
-        )
+        ),
+        encoding="utf-8",
     )
     return path

@@ -142,28 +142,29 @@ def cmd_bootstrap(
 
     cfg = config.load_config(home)
 
+    store_name = keychain.backend_name()
     outlook_address = cfg.delivery.email_cfg.from_address
     if not keychain.get_secret(keychain.SERVICE_OUTLOOK, outlook_address):
-        pw = getpass.getpass(f"Outlook password for {outlook_address} (stored in Keychain only): ")
+        pw = getpass.getpass(f"Outlook password for {outlook_address} (stored in {store_name}): ")
         if pw:
             keychain.set_secret(keychain.SERVICE_OUTLOOK, outlook_address, pw)
-            print("Stored Outlook password in Keychain.")
+            print(f"Stored Outlook password in {store_name}.")
 
     if not keychain.get_secret(keychain.SERVICE_OPENROUTER, "api-key"):
-        api_key = getpass.getpass("OpenRouter API key (stored in Keychain only): ")
+        api_key = getpass.getpass(f"OpenRouter API key (stored in {store_name}): ")
         if api_key:
             keychain.set_secret(keychain.SERVICE_OPENROUTER, "api-key", api_key)
-            print("Stored OpenRouter API key in Keychain.")
+            print(f"Stored OpenRouter API key in {store_name}.")
 
     profile_md_path = home / cfg.profile.profile_md_path
     if not profile_md_path.exists():
-        profile_md_path.write_text(_profile_md_template(cfg.profile.orcid_id))
+        profile_md_path.write_text(_profile_md_template(cfg.profile.orcid_id), encoding="utf-8")
         print(f"Wrote {profile_md_path} — edit it to refine your interests.")
 
     print("Building profile index from ORCID + profile.md ...")
     prof_index = build.build_index(
         orcid_id=cfg.profile.orcid_id,
-        profile_md_text=profile_md_path.read_text(),
+        profile_md_text=profile_md_path.read_text(encoding="utf-8"),
         contact_email=cfg.general.contact_email,
         recency_half_life_days=cfg.profile.recency_half_life_days,
         profile_md_dominance=cfg.profile.profile_md_dominance,
@@ -217,7 +218,9 @@ def cmd_run(home: Path, *, dry_run: bool) -> int:
             print("Rebuilding profile index (missing or stale) ...")
             prof_index = build.build_index(
                 orcid_id=cfg.profile.orcid_id,
-                profile_md_text=profile_md_path.read_text() if profile_md_path.exists() else "",
+                profile_md_text=(
+                    profile_md_path.read_text(encoding="utf-8") if profile_md_path.exists() else ""
+                ),
                 contact_email=cfg.general.contact_email,
                 recency_half_life_days=cfg.profile.recency_half_life_days,
                 profile_md_dominance=cfg.profile.profile_md_dominance,
@@ -257,7 +260,9 @@ def cmd_run(home: Path, *, dry_run: bool) -> int:
         degraded_reasons: list[str] = []
         summarize_result = summarize.summarize_shortlist(
             shortlisted,
-            profile_md_text=profile_md_path.read_text() if profile_md_path.exists() else "",
+            profile_md_text=(
+                profile_md_path.read_text(encoding="utf-8") if profile_md_path.exists() else ""
+            ),
             cfg=cfg.llm,
             api_key=keychain.get_secret(keychain.SERVICE_OPENROUTER, "api-key"),
         )
@@ -350,7 +355,7 @@ def cmd_show(home: Path) -> int:
         path = Path(run["digest_path"])
         if not path.is_absolute():
             path = home / path
-        print(path.read_text())
+        print(path.read_text(encoding="utf-8"))
         return 0
     finally:
         store.close()
@@ -374,10 +379,10 @@ def cmd_why(home: Path, paper_id: str) -> int:
 
 
 def cmd_install_agent(home: Path) -> int:
-    from recto.launchd import install_agent
+    from recto.scheduler import backend_name, install_agent
 
-    plist_path = install_agent(home)
-    print(f"Installed launchd agent at {plist_path}")
+    path = install_agent(home)
+    print(f"Installed {backend_name()} schedule at {path}")
     return 0
 
 
@@ -403,6 +408,13 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("install-agent")
 
     args = parser.parse_args(argv)
+
+    # Digests carry non-ASCII (author names, math, quotes). On Windows a
+    # redirected stdout defaults to the locale codepage and `recto show > f`
+    # would die on the first em dash.
+    if config.IS_WINDOWS:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
     home = args.home or config.home_dir()
     configure_logging(config.logs_dir() / "recto.log")
 

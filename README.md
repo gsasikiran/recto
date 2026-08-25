@@ -1,18 +1,18 @@
 # recto
 
-![platform](https://img.shields.io/badge/platform-macOS-lightgrey?logo=apple)
+![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue?logo=python&logoColor=white)
-![tests](https://img.shields.io/badge/tests-89%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-128%20passing-brightgreen)
 ![coverage](https://img.shields.io/badge/coverage-71%25-yellow)
 ![lint](https://img.shields.io/badge/lint-ruff-261230)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-A lightweight macOS personal research assistant. Once a day it pulls newly
-published papers from arXiv, OpenAlex, Semantic Scholar, and Google Scholar
-alerts, scores them against a profile built from your ORCID publication
-record and a hand-written `profile.md`, summarizes the top handful, picks
-**one** paper as "read this today," and delivers it as a macOS notification
-and an email.
+A lightweight personal research assistant for macOS, Linux, and Windows.
+Once a day it pulls newly published papers from arXiv, OpenAlex, Semantic
+Scholar, and Google Scholar alerts, scores them against a profile built from
+your ORCID publication record and a hand-written `profile.md`, summarizes the
+top handful, picks **one** paper as "read this today," and delivers it as a
+desktop notification and an email.
 
 Single-user, local-first. No web backend, no accounts, no database server.
 
@@ -31,7 +31,7 @@ fetch → dedupe → score (no LLM) → shortlist → summarize (LLM) → pick �
 - **Summarize & pick** — one batched Claude API call over the shortlist:
   2–3 sentence summaries plus a single paper-of-the-day pick with a
   rationale tied to your own prior work.
-- **Deliver** — a macOS notification banner and an HTML email, both
+- **Deliver** — a desktop notification banner and an HTML email, both
   optional and independently configurable.
 
 Every run writes a plain Markdown digest to `digests/YYYY-MM-DD.md` that you
@@ -40,7 +40,7 @@ it never duplicates or re-recommends.
 
 ## Requirements
 
-- macOS
+- macOS, Linux, or Windows
 - Python 3.11+
 - [`uv`](https://docs.astral.sh/uv/)
 - An Anthropic API key (via OpenRouter or direct, see `config.toml`)
@@ -71,8 +71,31 @@ Edit your local `profile.md` with prose about your current research
 interests, including things you haven't published on yet — it overrides
 ORCID where they conflict.
 
-Secrets (API keys, SMTP password) go in the macOS Keychain or environment,
-**never** in `config.toml`.
+### Secrets
+
+API keys and the SMTP password go in the OS secret store or the environment,
+**never** in `config.toml`. `recto bootstrap` prompts for them and picks a
+store for you:
+
+| Platform | Store |
+| --- | --- |
+| macOS | login Keychain, via the `security` CLI |
+| Linux | Secret Service via `secret-tool` (`libsecret-tools` / `libsecret`) |
+| Windows | a DPAPI-encrypted file under the data dir, readable only by your Windows account |
+
+If no keyring is reachable — a headless Linux box with no D-Bus session, for
+instance — recto falls back to a `0600` JSON file in the data dir and logs a
+warning that it did.
+
+An environment variable beats all of the above, which is the way to run
+without any keyring at all:
+
+```bash
+export RECTO_OPENROUTER_SECRET=sk-...      # OpenRouter API key
+export RECTO_OUTLOOK_SECRET=...            # SMTP password
+export RECTO_IMAP_SECRET=...               # Scholar Alerts IMAP password
+export RECTO_SEMANTICSCHOLAR_SECRET=...    # Semantic Scholar API key
+```
 
 ## Usage
 
@@ -83,12 +106,26 @@ uv run recto run --dry-run    # fetch + score, skip LLM and delivery
 uv run recto fetch            # sources only, print counts per source
 uv run recto show             # print latest digest to stdout
 uv run recto why <paper_id>   # print score breakdown for one paper
-uv run recto install-agent    # write and load the launchd plist for daily runs
+uv run recto install-agent    # register the daily schedule with the OS
 ```
 
-`install-agent` sets up a `launchd` user agent (`StartCalendarInterval`, no
-long-lived daemon) that runs `recto run` once a day at the time set in
-`config.toml`'s `[schedule]`.
+`install-agent` schedules `recto run` once a day at the time set in
+`config.toml`'s `[schedule]`, using whatever the OS provides. No long-lived
+daemon on any platform, and each backend is configured to catch up on a run
+missed while the machine was off:
+
+| Platform | Mechanism | Written to |
+| --- | --- | --- |
+| macOS | launchd user agent (`StartCalendarInterval`, `RunAtLoad`) | `~/Library/LaunchAgents/com.<user>.recto.plist` |
+| Linux | systemd user timer (`OnCalendar`, `Persistent=true`) | `~/.config/systemd/user/recto.{service,timer}` |
+| Windows | Task Scheduler task (`StartWhenAvailable` + logon trigger) | registered as `recto` |
+
+On Linux, a user timer only fires while you have a session unless lingering
+is on. For a machine you're not always logged into:
+
+```bash
+sudo loginctl enable-linger "$USER"
+```
 
 ## Development
 
@@ -116,12 +153,23 @@ src/recto/
   summarize.py
   pick.py
   render.py           # Markdown + HTML
-  deliver/            # notify.py (macOS banner), email.py (SMTP)
+  deliver/            # notify.py (desktop banner), email.py (SMTP)
   store.py            # SQLite persistence
+  keychain.py         # OS secret store, one backend per platform
+  scheduler.py        # daily schedule: launchd / systemd / Task Scheduler
   cli.py
 digests/               # YYYY-MM-DD.md, not committed
 ```
 
-Papers are stored forever in SQLite at
-`~/Library/Application Support/recto/db.sqlite` — that's how re-recommending
-the same paper is avoided.
+Papers are stored forever in SQLite — that's how re-recommending the same
+paper is avoided. The database, the profile index, and the log files live
+outside the repo, in the conventional per-user location for each OS:
+
+| Platform | Data | Logs |
+| --- | --- | --- |
+| macOS | `~/Library/Application Support/recto` | `~/Library/Logs/recto` |
+| Linux | `$XDG_DATA_HOME/recto` (default `~/.local/share/recto`) | `$XDG_STATE_HOME/recto/logs` (default `~/.local/state/recto/logs`) |
+| Windows | `%LOCALAPPDATA%\recto` | `%LOCALAPPDATA%\recto\logs` |
+
+Set `RECTO_DATA_DIR` or `RECTO_LOGS_DIR` to override either one — useful for
+a portable install or for pointing a test run somewhere disposable.
