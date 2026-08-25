@@ -4,13 +4,8 @@ import pytest
 
 from recto import config, scheduler
 
-
-@pytest.fixture(autouse=True)
-def _isolated_data_dir(tmp_path, monkeypatch):
-    """logs_dir()/data_dir() are used while building units; keep them out of
-    the real user directories on whatever OS the tests run on."""
-    monkeypatch.setenv("RECTO_DATA_DIR", str(tmp_path / "data"))
-    monkeypatch.setenv("RECTO_LOGS_DIR", str(tmp_path / "logs"))
+# data_dir()/logs_dir() are read while building units; conftest's autouse
+# isolated_data_dir fixture keeps them inside tmp_path on every OS.
 
 
 def _cfg(tmp_path):

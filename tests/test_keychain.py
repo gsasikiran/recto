@@ -10,9 +10,16 @@ from recto import config, keychain
 
 
 @pytest.fixture(autouse=True)
-def _isolated_store(tmp_path, monkeypatch):
-    monkeypatch.setenv("RECTO_DATA_DIR", str(tmp_path / "data"))
-    monkeypatch.delenv(keychain.env_var_name(keychain.SERVICE_OPENROUTER), raising=False)
+def _no_ambient_secrets(monkeypatch):
+    """conftest already points the file store at tmp_path; make sure a real
+    RECTO_*_SECRET in the developer's shell can't satisfy a lookup either."""
+    for service in (
+        keychain.SERVICE_OPENROUTER,
+        keychain.SERVICE_OUTLOOK,
+        keychain.SERVICE_IMAP,
+        keychain.SERVICE_SEMANTICSCHOLAR,
+    ):
+        monkeypatch.delenv(keychain.env_var_name(service), raising=False)
 
 
 def _as_platform(monkeypatch, name):
@@ -101,6 +108,55 @@ def test_macos_uses_security_cli(monkeypatch):
     assert keychain.get_secret(keychain.SERVICE_OUTLOOK, "me@example.com") == "s3cret"
     assert captured[0][:2] == ["security", "add-generic-password"]
     assert captured[1][:2] == ["security", "find-generic-password"]
+
+
+def test_macos_decodes_a_hex_encoded_password(monkeypatch):
+    """`security -w` prints non-ASCII secrets as bare hex with no marker, so
+    a password with an umlaut used to come back as '704073732077c3b67264'.
+    The -g probe is what disambiguates."""
+    _as_platform(monkeypatch, "macos")
+    _cli(monkeypatch, "security")
+    hex_stderr = 'password: 0x704073732077C3B67264  "p@ss w\\303\\266rd"\n'
+
+    def fake_run(args, **kwargs):
+        if "-g" in args:
+            return subprocess.CompletedProcess(args, 0, stdout="", stderr=hex_stderr)
+        # What -w would print for this secret, and what we must NOT return.
+        return subprocess.CompletedProcess(args, 0, stdout="704073732077c3b67264\n", stderr="")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+
+    assert keychain.get_secret(keychain.SERVICE_OUTLOOK, "me@example.com") == "p@ss wörd"
+
+
+def test_macos_keeps_a_plain_password_that_looks_like_hex(monkeypatch):
+    """'deadbeef' is a legal password. Without the -g marker there is no hex
+    to decode, so it has to come back verbatim."""
+    _as_platform(monkeypatch, "macos")
+    _cli(monkeypatch, "security")
+
+    def fake_run(args, **kwargs):
+        if "-g" in args:
+            return subprocess.CompletedProcess(args, 0, stdout="", stderr='password: "deadbeef"\n')
+        return subprocess.CompletedProcess(args, 0, stdout="deadbeef\n", stderr="")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+
+    assert keychain.get_secret(keychain.SERVICE_OUTLOOK, "me@example.com") == "deadbeef"
+
+
+def test_macos_returns_none_when_hex_is_not_utf8(monkeypatch):
+    _as_platform(monkeypatch, "macos")
+    _cli(monkeypatch, "security")
+
+    def fake_run(args, **kwargs):
+        if "-g" in args:
+            return subprocess.CompletedProcess(args, 0, stdout="", stderr="password: 0xFFFE\n")
+        return subprocess.CompletedProcess(args, 0, stdout="fffe\n", stderr="")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+
+    assert keychain.get_secret(keychain.SERVICE_OUTLOOK, "me@example.com") is None
 
 
 def test_macos_falls_back_to_file_when_security_fails(monkeypatch):

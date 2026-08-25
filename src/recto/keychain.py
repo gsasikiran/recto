@@ -29,6 +29,7 @@ import base64
 import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -43,6 +44,10 @@ SERVICE_SEMANTICSCHOLAR = "recto-semanticscholar"
 SERVICE_IMAP = "recto-imap"
 
 _SECRETS_FILENAME = "secrets.json"
+
+# `security ... -g` writes this to stderr when the secret isn't printable
+# ASCII. See _security_get.
+_HEX_PASSWORD_RE = re.compile(r"^password: 0x([0-9A-Fa-f]+)", re.MULTILINE)
 
 
 def env_var_name(service: str) -> str:
@@ -74,10 +79,45 @@ def _security_set(service: str, account: str, secret: str) -> bool:
 
 
 def _security_get(service: str, account: str) -> str | None:
+    """Read a password back from the login keychain.
+
+    `security ... -w` prints the secret hex-encoded, with no marker, whenever
+    it isn't plain printable ASCII — a password with an umlaut in it comes
+    back as `704073732077c3b67264`, which is itself a plausible-looking
+    password, so there is no safe way to tell from `-w` alone. `-g` reports
+    the same secret on stderr in an unambiguous form:
+
+        password: 0x704073732077C3B67264  "p@ss w\\303\\266rd"   (non-ASCII)
+        password: "hunter2"                                      (plain)
+
+    So: ask `-g` first, decode the hex when it says hex, and otherwise fall
+    back to `-w`, which is exact for the printable-ASCII case and avoids
+    having to unescape the quoted rendering.
+    """
+    probe = subprocess.run(
+        ["security", "find-generic-password", "-a", account, "-s", service, "-g"],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if probe.returncode != 0:
+        return None
+
+    hex_match = _HEX_PASSWORD_RE.search(probe.stderr)
+    if hex_match:
+        try:
+            return bytes.fromhex(hex_match.group(1)).decode("utf-8")
+        except (ValueError, UnicodeDecodeError):
+            logger.warning("keychain returned a password for %s that is not UTF-8", service)
+            return None
+
     result = subprocess.run(
         ["security", "find-generic-password", "-a", account, "-s", service, "-w"],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
     )
     if result.returncode != 0:
         return None
@@ -110,6 +150,7 @@ def _secret_tool_set(service: str, account: str, secret: str) -> bool:
         input=secret,
         capture_output=True,
         text=True,
+        encoding="utf-8",
     )
     return result.returncode == 0
 
@@ -119,6 +160,8 @@ def _secret_tool_get(service: str, account: str) -> str | None:
         ["secret-tool", "lookup", "service", service, "account", account],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
     )
     if result.returncode != 0 or not result.stdout:
         return None

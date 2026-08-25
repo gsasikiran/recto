@@ -150,7 +150,8 @@ Both channels fire on every successful run; each can be disabled in config.
 - All network calls go through one wrapper with timeout, backoff, and per-source rate limiting.
 - No secrets, no absolute user paths, no `digests/` contents committed.
 - Source parsers get fixture-based tests from recorded API responses. Tests never hit the network.
-- Tests never touch the real data dir or the real keychain: set `RECTO_DATA_DIR` and stub the platform CLIs. The whole suite must pass on all three OSes.
+- Tests never touch the real data dir or the real keychain — conftest's autouse `isolated_data_dir` fixture points `RECTO_DATA_DIR`/`RECTO_LOGS_DIR` at `tmp_path`, and platform CLIs are stubbed. The whole suite must pass on all three OSes.
+- `scripts/platform_smoke.py` is the unmocked counterpart: real directories, the real secret store, and the OS's own validator for the scheduler artifact. Add a check there whenever you touch a platform-specific path — a mocked test can't tell you the OS would reject the file. CI (`.github/workflows/ci.yml`) runs both on macOS/Ubuntu/Windows.
 
 ## Commands
 

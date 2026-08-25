@@ -2,7 +2,8 @@
 
 ![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue?logo=python&logoColor=white)
-![tests](https://img.shields.io/badge/tests-128%20passing-brightgreen)
+![ci](https://github.com/gsasikiran/recto/actions/workflows/ci.yml/badge.svg)
+![tests](https://img.shields.io/badge/tests-131%20passing-brightgreen)
 ![coverage](https://img.shields.io/badge/coverage-71%25-yellow)
 ![lint](https://img.shields.io/badge/lint-ruff-261230)
 ![license](https://img.shields.io/badge/license-MIT-blue)
@@ -132,12 +133,30 @@ sudo loginctl enable-linger "$USER"
 ```bash
 uv run pytest                                        # source parsers are tested against recorded fixtures, no network calls
 uv run pytest --cov=src/recto --cov-report=term-missing  # coverage report
+uv run python scripts/platform_smoke.py              # exercise this OS for real
 uv run ruff check .
 uv run ruff format .
 ```
 
-Badges above (tests/coverage) are static snapshots, not auto-updating — there's
-no CI configured for this single-user project. Re-run the commands above and
+The test suite patches `config.IS_MACOS` / `IS_LINUX` / `IS_WINDOWS`, so every
+OS branch runs from a single machine — and never touches the real data dir,
+log dir, or keychain. That proves the branching, not that the OS accepts what
+the branch produces, which is what `scripts/platform_smoke.py` is for: no
+mocks, real directories, the real secret store, and the platform's own
+validator for the generated schedule (`plutil -lint`, `systemd-analyze
+verify`, a real `schtasks /Create` + `/Delete`).
+
+CI (`.github/workflows/ci.yml`) runs pytest and the smoke script on macOS,
+Ubuntu, and Windows against Python 3.11 and 3.13, plus one Windows job pinned
+to a legacy cp1252 console to catch encoding regressions. Two things it can't
+cover, and that are worth doing by hand once per platform:
+
+- **The Linux `secret-tool` path.** GitHub runners have no D-Bus session, so
+  CI always exercises the file-store fallback instead.
+- **A real `install-agent`.** CI validates the generated plist/unit/task but
+  only registers one on Windows; it never waits for a timer to actually fire.
+
+The tests/coverage badges are static snapshots — re-run the commands above and
 update them by hand if they drift.
 
 ## Project layout
